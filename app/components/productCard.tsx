@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardHeader,
@@ -8,10 +9,12 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { useCart } from "../context/CartContext";
 
 export default function ProductCard({ product }: any) {
+      const { addToCart } = useCart();
   return (
-    <Card className="w-80 shadow-lg">
+    <Card className="w-80 shadow-lg hover:shadow-2xl">
       <CardHeader className="flex items-center justify-center">
         <Link href={`/product/${product.id}`}>
           <Image
@@ -35,9 +38,13 @@ export default function ProductCard({ product }: any) {
         </p>
       </CardContent>
       <CardFooter className="flex justify-center">
-        <Button variant="default" className="w-full">
-          Add to Cart
-        </Button>
+      <Button
+            onClick={() => addToCart(product)}
+            variant="default"
+            className="w-full"
+          >
+            Add to Cart
+          </Button>
       </CardFooter>
     </Card>
   );
