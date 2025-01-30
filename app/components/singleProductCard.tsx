@@ -14,7 +14,7 @@ import { useCart } from "../context/CartContext";
   export default function SingleProductCard({ product }: any) {
     const { addToCart } = useCart();
     return (
-        <Card className="w-96 shadow-lg hover:shadow-2xl">
+        <Card className="max-w-sm w-full sm:w-72 md:w-96 shadow-lg hover:shadow-2xl transition-shadow">
         <CardHeader className="flex items-center justify-center">
           <Image
             src={product.image}
