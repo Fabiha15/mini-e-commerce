@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button";
 import ProductCard from "./components/productCard";
 import { getProducts } from "./servers/products";
 import Link from "next/link";
+import { Product, ProductArray } from "@/types/product";
 
 export default async function Home() {
-  const products: any = await getProducts();
+  const products: ProductArray = await getProducts();
 
   return (
     <div>
@@ -21,7 +22,7 @@ export default async function Home() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-8">
-        {products.slice(0, 10).map((product: any) => (
+        {products.slice(0, 10).map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>

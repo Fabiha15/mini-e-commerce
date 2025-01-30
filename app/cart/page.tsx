@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CartPage() {
   const { cart, removeFromCart, totalPrice } = useCart();
@@ -46,7 +47,9 @@ export default function CartPage() {
               key={item.id}
               className="flex flex-col sm:flex-row items-center p-4 gap-2 sm:gap-4 hover:bg-slate-100"
             >
-              <img
+              <Image
+                width={100}
+                height={100}
                 src={item.image}
                 alt={item.title}
                 className="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-md"
